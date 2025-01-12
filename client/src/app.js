@@ -13,15 +13,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Send POST request to server to save data to the database
 
-    const baseUrl = `https://week4-assignment-bfsf.onrender.com`;
-
-    const response = await fetch(`${baseUrl}/guestbook`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const response = await fetch(
+      `https://week4-assignment-bfsf.onrender.com/guestbook`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
 
     const data = await response.json();
 
@@ -40,7 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to load guestbook entries
   async function loadGuestbookEntries() {
-    const response = await fetch(`${baseUrl}/guestbook`);
+    const response = await fetch(
+      `https://week4-assignment-bfsf.onrender.com/guestbook`
+    );
     const data = await response.json();
 
     guestbookEntries.innerHTML = ""; // Clear existing entries
