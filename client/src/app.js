@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Send POST request to server to save data to the database
 
-    const response = await fetch("http://localhost:4252/guestbook", {
+    const baseUrl = `https://week4-assignment-bfsf.onrender.com`;
+
+    const response = await fetch(`${baseUrl}/guestbook`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to load guestbook entries
   async function loadGuestbookEntries() {
-    const response = await fetch("http://localhost:4252/guestbook");
+    const response = await fetch(`${baseUrl}/guestbook`);
     const data = await response.json();
 
     guestbookEntries.innerHTML = ""; // Clear existing entries
