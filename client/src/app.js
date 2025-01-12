@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = { name, message };
 
     // Send POST request to server to save data to the database
-    const response = await fetch("http://localhost:8080/guestbook", {
+
+    const response = await fetch("http://localhost:4252/guestbook", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to load guestbook entries
   async function loadGuestbookEntries() {
-    const response = await fetch("http://localhost:8080/guestbook");
+    const response = await fetch("http://localhost:4252/guestbook");
     const data = await response.json();
 
     guestbookEntries.innerHTML = ""; // Clear existing entries
